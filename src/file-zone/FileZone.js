@@ -1,16 +1,36 @@
 import React, { Component } from 'react';
 import './FileZone.css';
+import TextFormater from '../text-formater';
+import getMockText from '../text.service';
 
 class FileZone extends Component {
-    render() {
-        return (
-            <div id="file-zone">
-                <div id="file">
+  constructor() {
+    super();
+    this.state = {
+      text: '',
+      error: ''
+    };
+  }
 
-                </div>
-            </div>
-        );
+  async componentDidMount() {
+    try {
+      const text = await getMockText();
+      this.setState({ text });
+    } catch (e) {
+      this.setState({ error: e.message });
     }
+  }
+
+  render() {
+    return (
+      <div id="file-zone">
+        {this.state.error}
+        <div id="file">
+          <TextFormater text={this.state.text} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default FileZone;

@@ -7,6 +7,9 @@ header {
   border-bottom: 4px solid #ffa500;
   background-color: rgba(33,33,33,0.5);
   color: #fff;
+  background-image: url(logo.svg);
+  background-position: right;
+  background-repeat: no-repeat;
 }
 
 .App {
