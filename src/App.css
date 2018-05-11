@@ -17,8 +17,13 @@ header {
   height: 100%;
   flex-direction: column;
 }
+
 main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+
+footer {
+  font-size: 0.8em;
 }

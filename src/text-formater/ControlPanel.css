@@ -4,8 +4,13 @@
   box-shadow: 1px 1px 1px #aaa; 
   padding-top: 5px;
   background-color: #eee;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 #format-actions {
   margin-left: 5px;
+}
+#format-label {
+  margin: 0 5px 0 5px;
+  font-size: 0.8em;
+  vertical-align: text-bottom;
 }

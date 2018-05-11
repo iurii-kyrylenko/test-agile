@@ -12,7 +12,9 @@ class TextFormater extends Component {
     }
   }
 
-  static getDerivedStateFromProps({ text }) {
+  static getDerivedStateFromProps({ text }, { selectedIndex }) {
+    if (selectedIndex) return null;
+
     const format = { b: false, i: false, u: false };
     const words = text.split(/\s+/).map((word, idx) => ({ idx, word, format: { ...format } }));
     return { words };
@@ -28,17 +30,33 @@ class TextFormater extends Component {
     this.setState({ words: this.state.words.map(word => word.idx === idx ? word2 : word) });
   };
 
+  handleSynonym = synonym => {
+    const idx = this.state.selectedIndex;
+    const word = this.state.words[idx];
+    const word2 = { ...word, word: synonym };
+    this.setState({ words: this.state.words.map(word => word.idx === idx ? word2 : word) });
+  }
+
+  handleSelect = (idx, word) => {
+    this.setState({ selectedIndex: idx });
+    this.props.onSelect && (idx !== this.state.selectedIndex) && this.props.onSelect(word);
+  };
+
   render() {
     const words = this.state.words;
     return (
       <div>
-        <ControlPanel onFormat={this.toggleFormat} />
+        <ControlPanel
+          synonyms={this.props.synonyms}
+          onFormat={this.toggleFormat}
+          onSynonym={this.handleSynonym}
+        />
         {words.map(word => (
           <Fragment key={word.idx}>
             <Word
               {...word}
               isSelected={this.state.selectedIndex === word.idx}
-              onSelect={idx => this.setState({ selectedIndex: idx })}
+              onSelect={this.handleSelect}
             />
             {' '}
           </Fragment>

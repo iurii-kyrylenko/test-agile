@@ -8,7 +8,7 @@ const Word = ({ idx, word, format: {b, i, u}, isSelected, onSelect }) => {
     backgroundColor: isSelected ? '#ccc' : ''
   }
   return (
-    <span style={style} onClick={() => onSelect(idx)}>
+    <span style={style} onClick={() => onSelect(idx, word)}>
       {word}
     </span>
   );

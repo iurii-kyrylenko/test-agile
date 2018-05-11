@@ -3,14 +3,24 @@ import './ControlPanel.css';
 
 class ControlPanel extends Component {
   render() {
-    const { onFormat } = this.props;
+    const { synonyms, onFormat, onSynonym } = this.props;
+
+    const button = (option, children) => (
+      <button onClick={() => onFormat(option)} className="format-action" type="button">{children}</button>
+    );
 
     return (
       <div id="control-panel">
         <div id="format-actions">
-          <button onClick={() => onFormat('b')} className="format-action" type="button"><b>B</b></button>
-          <button onClick={() => onFormat('i')} className="format-action" type="button"><i>I</i></button>
-          <button onClick={() => onFormat('u')} className="format-action" type="button"><u>U</u></button>
+          {button('b', <b>B</b>)}
+          {button('i', <i>I</i>)}
+          {button('u', <u>U</u>)}
+          <span id="format-label">Synonyms:</span>
+          <select onChange={e => onSynonym(e.target.value)}>
+            {synonyms.map(syn => (
+              <option key={syn}>{syn}</option>
+            ))}
+          </select>
         </div>
       </div>
     );
