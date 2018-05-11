@@ -1,0 +1,11 @@
+#control-panel {
+  background-color: #fff;
+  height: 25px;
+  box-shadow: 1px 1px 1px #aaa; 
+  padding-top: 5px;
+  background-color: #eee;
+  margin-bottom: 5px;
+}
+#format-actions {
+  margin-left: 5px;
+}
