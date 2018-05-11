@@ -25,6 +25,7 @@ class FileZone extends Component {
 
   handleSelect = async (word) => {
     try {
+      this.setState({ error: '' });
       const synonyms = [word, ...await getSynonyms(word)];
       this.setState({ synonyms });
     } catch (e) {
