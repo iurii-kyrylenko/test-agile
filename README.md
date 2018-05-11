@@ -1,5 +1,6 @@
 # Simple text editor - component TextFormater
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+## [Demo](https://iurii-kyrylenko.github.io/test-agile/)
 
 ## Initial setup
 Run `npm install` in order to setup application
