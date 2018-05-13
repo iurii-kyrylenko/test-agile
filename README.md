@@ -2,11 +2,12 @@
 
 ## [Demo](https://iurii-kyrylenko.github.io/test-agile/)
 
-## Initial setup
-Run `npm install` in order to setup application
+### Install dependencies
+> npm i
 
-## Development server
-Run `npm start` for a dev server.
+### Run development server
+> npm start
 
 ## Notes
-+ Text sample is given in `text.service.js`
++ [Text sample](src/text.service.js)
++ [Componet source code](src/text-formater/)

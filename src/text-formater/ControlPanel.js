@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ControlPanel.css';
+import styles from './ControlPanel.styles';
 
 class ControlPanel extends Component {
   render() {
@@ -10,12 +10,12 @@ class ControlPanel extends Component {
     );
 
     return (
-      <div id="control-panel">
-        <div id="format-actions">
+      <div style={styles.root}>
+        <div style={styles.actions}>
           {button('b', <b>B</b>)}
           {button('i', <i>I</i>)}
           {button('u', <u>U</u>)}
-          <span id="format-label">Synonyms:</span>
+          <span style={styles.label}>Synonyms:</span>
           <select onChange={e => onSynonym(e.target.value)}>
             {synonyms.map(syn => (
               <option key={syn}>{syn}</option>
